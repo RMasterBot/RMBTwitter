@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_friends_list(function (error, data) {
+  bot.api.rest.getFriendsList(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

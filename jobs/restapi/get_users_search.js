@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_users_search(function (error, data) {
+  bot.getUsersSearch(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

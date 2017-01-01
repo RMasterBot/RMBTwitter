@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.post_account_remove_profile_banner(function (error, data) {
+  bot.postAccountRemoveProfileBanner(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

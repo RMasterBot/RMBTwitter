@@ -5,7 +5,7 @@
    node job <bot_name> get_account_settings (-a | --app) <app_name> (-u | --user) <user_name>
 
  API endpoint used:
-   GET /
+   GET /1.1/account/settings
 
  Scope:
    xxx
@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.getAccountSettings(function (error, data) {
+  bot.api.rest.getAccountSettings(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

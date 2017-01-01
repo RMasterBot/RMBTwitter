@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_statuses_retweeters_ids(function (error, data) {
+  bot.getStatusesRetweetersIds(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_help_privacy(function (error, data) {
+  bot.api.rest.getHelpPrivacy(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

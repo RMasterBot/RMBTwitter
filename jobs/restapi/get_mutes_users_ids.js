@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_mutes_users_ids(function (error, data) {
+  bot.api.rest.getMutesUsersIds(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

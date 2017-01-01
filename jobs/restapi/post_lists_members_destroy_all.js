@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.post_lists_members_destroy_all(function (error, data) {
+  bot.postListsMembersDestroyAll(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

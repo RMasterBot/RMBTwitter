@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.post_lists_members_create(function (error, data) {
+  bot.postListsMembersCreate(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

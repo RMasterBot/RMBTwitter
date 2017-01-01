@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.post_collections_entries_remove(function (error, data) {
+  bot.postCollectionsEntriesRemove(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

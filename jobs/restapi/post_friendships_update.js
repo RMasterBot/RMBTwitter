@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.post_friendships_update(function (error, data) {
+  bot.postFriendshipsUpdate(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

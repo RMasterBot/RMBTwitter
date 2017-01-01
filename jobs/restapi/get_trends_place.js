@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_trends_place(function (error, data) {
+  bot.getTrendsPlace(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

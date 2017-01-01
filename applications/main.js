@@ -1,4 +1,7 @@
 var Bot = require(require('path').join('..','..','core','bot.js'));
+var Rest = require('./rest.js');
+var Ads = require('./ads.js');
+var Stream = require('./stream.js');
 
 /**
  * Twitter Bot
@@ -20,6 +23,11 @@ function Twitter(name, folder, allConfigurations){
 
   this.defaultValues.defaultRemainingRequest = 180;
   this.defaultValues.defaultRemainingTime = 60*15;
+  this.api = {
+    rest: new Rest(this),
+    ads: new Ads(this),
+    stream: new Stream(this),
+  }
 }
 
 Twitter.prototype = new Bot();
@@ -110,50 +118,6 @@ Twitter.prototype.prepareRequest = function(parameters, callback) {
   else {
     this.doRequest(parameters, callback);
   }
-};
-
-Twitter.prototype.getAccountVerifyCredentials = function(callback) {
-  var params = {
-    method:'GET',
-    path: 'account/verify_credentials.json'
-  };
-
-  this.prepareRequest(params, callback);
-};
-
-Twitter.prototype.getStatusesHomeTimeline = function(callback) {
-  var params = {
-    method:'GET',
-    path: 'statuses/home_timeline.json',
-    output: {
-      model: 'Tweet',
-      isArray: true
-    }
-  };
-
-  this.prepareRequest(params, callback);
-};
-
-Twitter.prototype.stream = function(word, callback) {
-  var that = this;
-  var params = {
-    method:'GET',
-    hostname: 'stream.twitter.com',
-    path: 'statuses/filter.json',
-    stream : true,
-    get: {
-      track: word
-    },
-    options : {
-      useRequest : true
-    }
-  };
-
-  this.treatDataFromStream = function(data) {
-    return new that.models['Tweet'](JSON.parse(data));
-  };
-
-  this.prepareRequest(params, callback);
 };
 
 /**
@@ -264,6 +228,45 @@ Twitter.prototype.formatNewAccessToken = function(accessTokenData, scopes, callb
 
 Twitter.prototype.extractDataFromRequest = function(data) {
   return data;
+};
+
+Twitter.prototype.getAccountVerifyCredentials = function(callback) {
+  this.api.rest.getAccountVerifyCredentials(callback);
+};
+
+Twitter.prototype.getStatusesHomeTimeline = function(callback) {
+  var params = {
+    method:'GET',
+    path: 'statuses/home_timeline.json',
+    output: {
+      model: 'Tweet',
+      isArray: true
+    }
+  };
+
+  this.prepareRequest(params, callback);
+};
+
+Twitter.prototype.stream = function(word, callback) {
+  var that = this;
+  var params = {
+    method:'GET',
+    hostname: 'stream.twitter.com',
+    path: 'statuses/filter.json',
+    stream : true,
+    get: {
+      track: word
+    },
+    options : {
+      useRequest : true
+    }
+  };
+
+  this.treatDataFromStream = function(data) {
+    return new that.models['Tweet'](JSON.parse(data));
+  };
+
+  this.prepareRequest(params, callback);
 };
 
 module.exports = Twitter;

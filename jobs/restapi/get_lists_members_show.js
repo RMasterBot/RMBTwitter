@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_lists_members_show(function (error, data) {
+  bot.api.rest.getListsMembersShow(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

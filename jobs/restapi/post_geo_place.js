@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.post_geo_place(function (error, data) {
+  bot.postGeoPlace(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

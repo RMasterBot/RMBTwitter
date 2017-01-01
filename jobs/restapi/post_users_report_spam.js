@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.post_users_report_spam(function (error, data) {
+  bot.postUsersReportSpam(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

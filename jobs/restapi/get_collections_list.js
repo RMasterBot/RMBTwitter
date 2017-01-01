@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_collections_list(function (error, data) {
+  bot.api.rest.getCollectionsList(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.post_favorites_create(function (error, data) {
+  bot.postFavoritesCreate(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

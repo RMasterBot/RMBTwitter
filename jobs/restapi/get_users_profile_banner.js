@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_users_profile_banner(function (error, data) {
+  bot.getUsersProfileBanner(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

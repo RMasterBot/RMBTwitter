@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_application_rate_limit_status(function (error, data) {
+  bot.api.rest.getApplicationRateLimitStatus(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

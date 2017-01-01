@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.getAccountVerifyCredentials(function (error, data) {
+  bot.api.rest.getAccountVerifyCredentials(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

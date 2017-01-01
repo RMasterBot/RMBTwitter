@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.post_account_settings(function (error, data) {
+  bot.postAccountSettings(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

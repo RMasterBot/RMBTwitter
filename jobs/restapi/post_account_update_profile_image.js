@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.post_account_update_profile_image(function (error, data) {
+  bot.postAccountUpdateProfileImage(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

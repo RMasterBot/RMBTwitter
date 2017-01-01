@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_statuses_show(function (error, data) {
+  bot.getStatusesShow(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.post_statuses_destroy(function (error, data) {
+  bot.postStatusesDestroy(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

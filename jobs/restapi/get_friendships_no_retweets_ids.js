@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_friendships_no_retweets_ids(function (error, data) {
+  bot.api.rest.getFriendshipsNoRetweetsIds(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);

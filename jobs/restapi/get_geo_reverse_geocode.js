@@ -16,7 +16,7 @@
  * @param {Job~Callback} callback
  */
 module.exports = function(bot, extraArguments, callback) {
-  bot.get_geo_reverse_geocode(function (error, data) {
+  bot.api.rest.getGeoReverseGeocode(function (error, data) {
     if(error) {
       if(callback) {
         callback(error, null);
