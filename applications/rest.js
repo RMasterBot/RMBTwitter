@@ -6,7 +6,10 @@
 function Rest(twitter) {
   this.twitter = twitter;
 }
-
+/**
+ * API getAccountSettings
+ * @param {Twitter~requestAccountSettingsCallback} callback
+ */
 Rest.prototype.getAccountSettings = function(callback) {
   var params = {
     method: 'GET',
@@ -943,5 +946,11 @@ Rest.prototype.postUsersReportSpam = function(callback) {
   this.twitter.prepareRequest(params, callback);
 };
 
-
 module.exports = Rest;
+
+/**
+ * Request callback contain account settings
+ * @callback Twitter~requestAccountSettingsCallback
+ * @param {Error|string|null} error
+ * @param {AccountSettings} accountSettings
+ */
